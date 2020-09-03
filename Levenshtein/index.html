@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>Move</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link rel="Stylesheet" type="text/css" href="css/main.css"/>
+  </head>
+  <body>
+	<div class="container">
+	    <div class="row">
+			<div class="col s12 m8 offset-m2">
+				<h4 class="center-align">Levenshtein Distance Backtrack</h4>
+			</div>
+			<div class="col s12 m8 offset-m2">
+				&nbsp
+			</div>
+			<div class="col s12 m8 offset-m2">
+				<p><a href="http://en.wikipedia.org/wiki/Levenshtein_distance">Levenshtein distance</a> between two strings is the minimum number of character edits(i.e. insertions, deletions or substitutions) required to change one string into the other.</p>
+			</div>
+			<div class="col s12 m8 offset-m2">
+				&nbsp
+			</div>
+			<div class="col s12 m8 offset-m2">
+				<label>First String</label>
+				<input type="text" id="firstword" />
+			</div>
+			<div class="col s12 m8 offset-m2">
+				<label>Second String</label>
+				<input type="text" id="secondword" />
+			</div>			
+			<div class="col s12 m8 offset-m2">
+				<p id="textchange"></p>
+			</div>
+			<div class="col s6 offset-s3 m2 offset-m5">
+				<button class="waves-effect waves-light btn indigo" id="go">Change</button>
+			</div>
+		</div>
+		<div class="row center-align">
+			<div class="col s4 m2 offset-m3 light-blue-text text-lighten-2" id="insno">
+				Insertions: 0
+			</div>
+			<div class="col s4 m2 green-text text-accent-2" id="subno">
+				Substitution: 0
+			</div>
+			<div class="col s4 m2 orange-text text-lighten-2" id="delno">
+				Deletions: 0
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 m8 offset-m2">
+				<p>When displaying search results, terms which are close enough to the queried string also need to be displayed. The terms which have lowest Levenshtein distance (similar in spelling) are shown before other terms in the list. </p>
+				<p>We calculate a m * n matrix and the number at the bottom-right corner is the levenshtein distance. Here m and n are the lengths of the first and second string respectively. To calculate the sequence of optimal operations required, one needs to traverse the matrix from the bottom-right corner to the top left corner (which has the value 0). Every vertical move is an insertion, left is deletion and a diagonal move is substitution.</p>
+				<p>The implementation above shows a backtrack done, which shows one of the paths possible, along with the number of operations. The calculation of the matrix is done using a javascript implentation on the algorithm and can be found <a href="https://github.com/gf3/Levenshtein">here</a>.
+				</p>
+			</div>
+		</div>
+	</div>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/modernizr.min.js"></script>
+  <script src="js/jquery.blast.js"></script>
+  <script src="js/materialize.min.js"></script>
+  <script src="js/levenshtein.js"></script>
+  <script src="js/main.js"></script>
+  </body>
+</html>
